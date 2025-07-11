@@ -9,7 +9,7 @@ A Flask-based AI application that:
 - Summarizes visuals + audio using **Groq LLM (llama3-8b-8192)**
 
 ## 📁 Project Structure
-
+````
 video\_to\_narrative/
 ├── app.py                 # Main Flask backend
 ├── logs/
@@ -22,7 +22,7 @@ video\_to\_narrative/
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
-
+```
 ## ✅ Features
 
 - ✅ Upload crime/dashcam/bodycam video
