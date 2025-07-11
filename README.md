@@ -1,5 +1,6 @@
 ```markdown
 # 🎥 Video to Narrative (Crime Scene Caption + Summary AI)
+
 ![Video to Narrative Diagram](video_to_narrative_app_description_diagram.png)
 
 A Flask-based AI application that:
@@ -8,7 +9,6 @@ A Flask-based AI application that:
 - Transcribes audio using Whisper
 - Summarizes visuals + audio using **Groq LLM (llama3-8b-8192)**
 
----
 
 ## 📁 Project Structure
 
@@ -30,8 +30,6 @@ video\_to\_narrative/
 
 ````
 
----
-
 ## 🧪 Features
 
 - ✅ Upload crime/dashcam/bodycam video
@@ -40,8 +38,6 @@ video\_to\_narrative/
 - ✅ Groq-powered dual summary:
   - General Summary
   - Law Enforcement Report
-
----
 
 ## 🚀 Setup Instructions
 
@@ -77,8 +73,6 @@ GROQ_API_KEY=your_groq_api_key_here
 
 Or paste the key directly in `app.py` (⚠️ not recommended for production).
 
----
-
 ## ▶️ Run the App
 
 ```bash
@@ -87,15 +81,12 @@ python app.py
 
 Visit: [http://127.0.0.1:8009](http://127.0.0.1:8009)
 
----
-
 ## 🛑 Notes
 
 * Uses CPU by default (Torch auto-detects)
 * Uploaded files, extracted frames, and audio are auto-cleaned after processing
 * Logs saved to `logs/app.log`
 
----
 
 ## 🧼 Auto-Cleanup
 
@@ -106,8 +97,6 @@ After every run, the app automatically deletes:
 * Extracted audio files
 
 ````
-
----
 
 ### ✅ `.gitignore` (if you haven’t already created):
 
@@ -135,5 +124,3 @@ logs/
 *.mov
 *.mkv
 ````
-
----
