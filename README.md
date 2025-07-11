@@ -38,13 +38,16 @@ video_to_narrative/
 ### 1. Clone the repo
 
 git clone https://github.com/ChaituRajSagar/video_to_narrative.git
+
 cd video_to_narrative
 
 ### 2. Create Python environment
 
 python -m venv v2t
 v2t\Scripts\activate  # On Windows
-Or:
+
+Or 
+
 source v2t/bin/activate  # On macOS/Linux
 
 ### 3. Install dependencies
