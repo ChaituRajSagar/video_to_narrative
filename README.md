@@ -1,10 +1,8 @@
-✅ README.md
-markdown
-Copy
-Edit
+```markdown
 # 🎥 Video to Narrative (Crime Scene Caption + Summary AI)
+![Video to Narrative Diagram](video_to_narrative_app_description_diagram.png)
 
-This is a Flask-based AI application that:
+A Flask-based AI application that:
 - Extracts frames from uploaded videos
 - Captions frames using ViT-GPT2 (transformers)
 - Transcribes audio using Whisper
@@ -14,22 +12,23 @@ This is a Flask-based AI application that:
 
 ## 📁 Project Structure
 
-video_to_narrative/
-├── app.py # Main Flask backend
+```
+
+video\_to\_narrative/
+├── app.py                  # Main Flask backend
 ├── logs/
-│ └── app.log # Runtime logs
-├── uploads/ # Temporary video + frames (ignored in Git)
-├── audio/ # Temporary audio files (ignored in Git)
+│   └── app.log             # Runtime logs
+├── uploads/                # Temporary video + frames (ignored in Git)
+├── audio/                  # Temporary audio files (ignored in Git)
 ├── templates/
-│ └── index.html # Frontend upload page
-├── v2t/ # (Your virtual environment — ignored in Git)
+│   └── index.html          # Frontend upload page
+├── v2t/                    # Virtual environment (ignored in Git)
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
 
-yaml
-Copy
-Edit
+
+````
 
 ---
 
@@ -51,47 +50,90 @@ Edit
 ```bash
 git clone https://github.com/yourusername/video_to_narrative.git
 cd video_to_narrative
-2. Create Python environment
-bash
-Copy
-Edit
+````
+
+### 2. Create Python environment
+
+```bash
 python -m venv v2t
 v2t\Scripts\activate  # On Windows
-# Or:
-# source v2t/bin/activate  # On macOS/Linux
-3. Install dependencies
-bash
-Copy
-Edit
+# Or
+source v2t/bin/activate  # On macOS/Linux
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-4. Set your Groq API Key
-Create a .env file:
+```
 
-env
-Copy
-Edit
+### 4. Set your Groq API Key
+
+Either create a `.env` file:
+
+```
 GROQ_API_KEY=your_groq_api_key_here
-Or paste it directly in app.py (not recommended for production).
+```
 
-▶️ Run the App
-bash
-Copy
-Edit
+Or paste the key directly in `app.py` (⚠️ not recommended for production).
+
+---
+
+## ▶️ Run the App
+
+```bash
 python app.py
-Visit: http://127.0.0.1:8009
+```
 
-🛑 Notes
-Uses CPU by default (Torch auto-detects)
+Visit: [http://127.0.0.1:8009](http://127.0.0.1:8009)
 
-All uploaded files and frames are auto-cleaned after processing
+---
 
-Logs stored in logs/app.log
+## 🛑 Notes
 
-🧼 Cleanup
-App automatically removes:
+* Uses CPU by default (Torch auto-detects)
+* Uploaded files, extracted frames, and audio are auto-cleaned after processing
+* Logs saved to `logs/app.log`
 
-Extracted frames
+---
 
-Audio files
+## 🧼 Auto-Cleanup
 
-Uploaded videos
+After every run, the app automatically deletes:
+
+* Extracted frames
+* Uploaded videos
+* Extracted audio files
+
+````
+
+---
+
+### ✅ `.gitignore` (if you haven’t already created):
+
+```gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual Environment
+v2t/
+
+# Uploaded & generated content
+uploads/
+audio/
+logs/
+
+# System files
+.DS_Store
+.env
+*.wav
+*.mp4
+*.avi
+*.mov
+*.mkv
+````
+
+---
