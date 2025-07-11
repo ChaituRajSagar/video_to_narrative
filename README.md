@@ -1,19 +1,7 @@
-Perfect — if you've renamed your image file to:
-
-```
-video_to_narrative_app_description_diagram.png
-```
-
-Then update your `README.md` image reference like this:
-
----
-
-### ✅ Final Correct Markdown for README
-
 ```markdown
 # 🎥 Video to Narrative (Crime Scene Caption + Summary AI)
 
-![Video to Narrative Diagram](video_to_narrative_app_description_diagram.png)
+![Video to Narrative Diagram](C:\Users\Chaitanya\Desktop\video_to_narrative\video_to_narrative_app_description_diagram.png)
 
 A Flask-based AI application that:
 - Extracts frames from uploaded videos
@@ -24,7 +12,6 @@ A Flask-based AI application that:
 ## 📁 Project Structure
 
 ```
-
 video\_to\_narrative/
 ├── app.py                 # Main Flask backend
 ├── logs/
@@ -37,7 +24,6 @@ video\_to\_narrative/
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
-
 ````
 
 ## ✅ Features
