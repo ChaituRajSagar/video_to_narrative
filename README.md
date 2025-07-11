@@ -44,8 +44,8 @@ cd video_to_narrative
 
 python -m venv v2t
 v2t\Scripts\activate  # On Windows
-# Or:
-# source v2t/bin/activate  # On macOS/Linux
+Or:
+source v2t/bin/activate  # On macOS/Linux
 
 ### 3. Install dependencies
 
