@@ -1,4 +1,3 @@
-```markdown
 # 🎥 Video to Narrative (Crime Scene Caption + Summary AI)
 
 ![Video to Narrative Diagram](C:\Users\Chaitanya\Desktop\video_to_narrative\video_to_narrative_app_description_diagram.png)
@@ -11,7 +10,6 @@ A Flask-based AI application that:
 
 ## 📁 Project Structure
 
-```
 video\_to\_narrative/
 ├── app.py                 # Main Flask backend
 ├── logs/
@@ -24,7 +22,6 @@ video\_to\_narrative/
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
-````
 
 ## ✅ Features
 
@@ -35,51 +32,35 @@ video\_to\_narrative/
   - General Summary
   - Law Enforcement Report
 
----
-
 ## 🚀 Setup Instructions
 
 ### 1. Clone the repo
 
-```bash
 git clone https://github.com/ChaituRajSagar/video_to_narrative.git
 cd video_to_narrative
-````
 
 ### 2. Create Python environment
 
-```bash
 python -m venv v2t
 v2t\Scripts\activate  # On Windows
 # Or:
 # source v2t/bin/activate  # On macOS/Linux
-```
 
 ### 3. Install dependencies
 
-```bash
 pip install -r requirements.txt
-```
 
 ### 4. Set your Groq API Key
 
 Create a `.env` file (or set directly in `app.py`):
 
-```
 GROQ_API_KEY=your_groq_api_key_here
-```
-
----
 
 ## ▶️ Run the App
 
-```bash
 python app.py
-```
 
 Visit [http://127.0.0.1:8009](http://127.0.0.1:8009)
-
----
 
 ## 🛑 Notes
 
@@ -90,15 +71,3 @@ Visit [http://127.0.0.1:8009](http://127.0.0.1:8009)
   * Uploaded video
   * Audio files
 * Logs available in `logs/app.log`
-
-````
-
----
-
-### ✅ Git Push Commands
-
-```bash
-git add README.md video_to_narrative_app_description_diagram.png
-git commit -m "📝 Added diagram + updated README"
-git push
-````
