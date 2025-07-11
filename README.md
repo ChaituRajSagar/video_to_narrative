@@ -44,6 +44,7 @@ cd video_to_narrative
 ### 2. Create Python environment
 
 python -m venv v2t
+
 v2t\Scripts\activate  # On Windows
 
 Or 
