@@ -10,7 +10,7 @@ A Flask-based AI application that:
 
 ## 📁 Project Structure
 ```
-video\_to\_narrative/
+video_to_narrative/
 ├── app.py                 # Main Flask backend
 ├── logs/
 │   └── app.log            # Runtime logs
