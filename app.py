@@ -38,7 +38,9 @@ ALLOWED_EXTENSIONS = {'mp4', 'avi', 'mov', 'mkv', 'webm'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # --- Groq API ---
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise EnvironmentError("❌ GROQ_API_KEY is not set. Please configure it in your environment.")
 MODEL_NAME = "llama3-8b-8192"
 
 # --- Load Image Captioning ---
