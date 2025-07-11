@@ -10,6 +10,9 @@ import torch
 from transformers import VisionEncoderDecoderModel, ViTImageProcessor, AutoTokenizer
 from groq import Groq  # type: ignore
 import cv2  # type: ignore
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --- Create Necessary Folders ---
 os.makedirs("logs", exist_ok=True)
