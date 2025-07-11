@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 800px; margin: auto; }
+        h1 { text-align: center; color: #333; }
+        input[type="file"] { margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .loading { display: none; text-align: center; margin-top: 20px; font-weight: bold; color: #555; }
+        .results { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+        .results h2 { color: #333; }
+        .results pre { background-color: #eee; padding: 15px; border-radius: 5px; white-space: pre-wrap; word-break: break-word; }
+        .error { color: red; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Video for Summarization</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="videoFile" name="videoFile" accept="video/*">
+            <button type="submit">Upload and Summarize</button>
+        </form>
+
+        <div class="loading" id="loadingMessage">Processing video... This may take a few minutes.</div>
+        <div class="error" id="errorMessage"></div>
+
+        <div class="results" id="resultsDiv" style="display: none;">
+            <h2>Generated Captions</h2>
+            <ul id="captionsList"></ul>
+
+            <h2>General Summary</h2>
+            <pre id="generalSummary"></pre>
+
+            <h2>Narrative Summary</h2>
+            <pre id="lawEnforcementSummary"></pre>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const videoFile = document.getElementById('videoFile').files[0];
+            const loadingMessage = document.getElementById('loadingMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultsDiv = document.getElementById('resultsDiv');
+            const captionsList = document.getElementById('captionsList');
+            const generalSummary = document.getElementById('generalSummary');
+            const lawEnforcementSummary = document.getElementById('lawEnforcementSummary');
+
+            // Reset previous results and error messages
+            errorMessage.textContent = '';
+            resultsDiv.style.display = 'none';
+            captionsList.innerHTML = '';
+            generalSummary.textContent = '';
+            lawEnforcementSummary.textContent = '';
+
+            if (!videoFile) {
+                errorMessage.textContent = 'Please select a video file to upload.';
+                return;
+            }
+
+            loadingMessage.style.display = 'block'; // Show loading message
+
+            const formData = new FormData();
+            formData.append('videoFile', videoFile);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success
+                    data.captions.forEach(caption => {
+                        const li = document.createElement('li');
+                        li.textContent = caption;
+                        captionsList.appendChild(li);
+                    });
+                    generalSummary.textContent = data.general_summary || "No general summary generated.";
+                    lawEnforcementSummary.textContent = data.law_enforcement_summary || "No law enforcement summary generated.";
+                    resultsDiv.style.display = 'block'; // Show results
+                } else {
+                    // Error from server
+                    errorMessage.textContent = `Error: ${data.error || 'Something went wrong.'}`;
+                }
+            } catch (error) {
+                // Network or unexpected error
+                errorMessage.textContent = `An unexpected error occurred: ${error.message}`;
+                console.error('Fetch error:', error);
+            } finally {
+                loadingMessage.style.display = 'none'; // Hide loading message
+            }
+        });
+    </script>
+</body>
+</html>

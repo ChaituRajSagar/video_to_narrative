@@ -1,0 +1,24 @@
+
+---
+
+## ✅ `.gitignore`
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+
+# Environments
+v2t/
+
+# Logs
+logs/
+*.log
+
+# Video Uploads & Audio
+uploads/
+audio/
+
+# Models (optional, if stored)
+*.pt
+*.bin
